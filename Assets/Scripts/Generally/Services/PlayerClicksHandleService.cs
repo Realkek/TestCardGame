@@ -5,7 +5,7 @@ namespace Generally.Services
 {
     [CreateAssetMenu(menuName = "Game/Services/PlayerClicksHandleService",
         fileName = "PlayerClicksHandleService")]
-    public class PlayerClicksHandleService : BaseScriptableObjectInitializer
+    public class PlayerClicksHandleService : BaseInitializer
     {
         public override void Operate()
         {

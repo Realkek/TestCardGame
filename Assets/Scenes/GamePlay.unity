@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 215703056}
   - component: {fileID: 215703055}
-  - component: {fileID: 215703054}
   - component: {fileID: 215703053}
   m_Layer: 0
   m_Name: Bootstrapper
@@ -154,20 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5feed910d5f16649b6b136cbabc224a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &215703054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215703052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 546f63397c0ecb441b0b667ec5e3bcbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _baseScriptableObjectInitializers: []
-  _baseInitializers: []
 --- !u!114 &215703055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,8 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85310352db029e4d8e0d2263f992f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneData: {fileID: 215703053}
-  _servicesInitializer: {fileID: 215703054}
+  _baseInitializers: []
 --- !u!4 &215703056
 Transform:
   m_ObjectHideFlags: 0

@@ -1,34 +1,42 @@
-using Scenes.BattleVsZombies.Generally;
+using System.Collections.Generic;
+using System.Linq;
+using Interfaces;
 using UnityEngine;
 
 namespace Generally
 {
     public class Bootstrapper : MonoBehaviour
     {
-        [SerializeField] private SceneData _sceneData;
-        [SerializeField] private ServicesInitializer _servicesInitializer;
+        private SceneData _sceneData;
+        [SerializeField] private List<BaseInitializer> _baseInitializers;
 
         private void Awake()
         {
-            _servicesInitializer.GetComponents();
-            _servicesInitializer.Construct(_sceneData);
-            _servicesInitializer.Initialize();
-            _servicesInitializer.Enable();
+            _sceneData = GetComponent<SceneData>();
+            _sceneData.GetComponents();
+
+            foreach (IBaseInitializer baseInitializer in _baseInitializers)
+            {
+                baseInitializer.GetComponents();
+                baseInitializer.Construct(_sceneData);
+                baseInitializer.Initialize();
+                baseInitializer.Enable();
+            }
         }
 
         private void Update()
         {
-            _servicesInitializer.Operate();
+            foreach (IBaseInitializer baseInitializer in _baseInitializers) baseInitializer.Operate();
         }
 
         private void FixedUpdate()
         {
-            _servicesInitializer.FixedOperate();
+            foreach (IBaseInitializer baseInitializer in _baseInitializers) baseInitializer.FixedOperate();
         }
 
         private void OnDestroy()
         {
-            _servicesInitializer.Dispose();
+            foreach (IBaseInitializer baseInitializer in _baseInitializers) baseInitializer.Dispose();
         }
     }
 }

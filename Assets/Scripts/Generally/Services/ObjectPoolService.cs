@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Generally.Services
 {
-    public class ObjectPoolService : BaseScriptableObjectInitializer
+    public class ObjectPoolService : BaseInitializer
     {
         protected List<Transform> _entityPlacePositions;
         [SerializeField] private GameObject _prefab;

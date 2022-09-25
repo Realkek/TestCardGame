@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Scenes.BattleVsZombies.Generally.StaticData
+namespace Generally.StaticData.Events
 {
     [CreateAssetMenu(menuName = "StaticData/Game/EventsData/PlayerInputKeysEventData",
         fileName = "PlayerInputKeysEventData")]

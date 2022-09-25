@@ -1,22 +1,18 @@
 using System.Collections.Generic;
 using System.Linq;
-using Scenes.BattleVsZombies.Generally;
+using Generally.DataProviders;
+using Interfaces;
+using UnityEngine;
 
 namespace Generally
 {
-    public class SceneData : BaseInitialization
+    public class SceneData : MonoBehaviour, IComponentsReceiver
     {
         private List<ObjectsPoolData> _objectPools;
 
-        public override void GetComponents()
+        public  void GetComponents()
         {
-            base.GetComponents();
             _objectPools = GetComponentsInChildren<ObjectsPoolData>().ToList();
-
-            foreach (var objectPool in _objectPools)
-            {
-                objectPool.GetComponents();
-            }
         }
         
         public List<ObjectsPoolData> ObjectPools => _objectPools;

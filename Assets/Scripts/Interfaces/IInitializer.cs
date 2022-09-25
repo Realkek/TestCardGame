@@ -1,6 +1,4 @@
-using Scenes.BattleVsZombies.Generally;
-
-namespace Scenes.BattleVsZombies.Interfaces
+namespace Interfaces
 {
     public interface IInitializer
     {

@@ -1,15 +1,11 @@
 using System.Collections.Generic;
-using Generally;
 using UnityEngine;
 
-namespace Scenes.BattleVsZombies.Generally
+namespace Generally.DataProviders
 {
-    public class ObjectsPoolData : BaseInitialization
+    public class ObjectsPoolData : GameObjectDataProvider
     {
-        [SerializeField] private string _name;
         [SerializeField] private List<Transform> _entityPlacePositions;
-
-        public string Name => _name;
         public List<Transform> EntityPlacePositions => _entityPlacePositions;
     }
 }
