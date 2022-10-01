@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Generally
+namespace TestCardGame.Scripts.Generally
 {
     public class GameObjectDataProvider : MonoBehaviour
     {

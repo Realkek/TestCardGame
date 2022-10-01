@@ -1,6 +1,3 @@
-using System.Linq;
-using DG.Tweening;
-using Scenes.BattleVsZombies.Generally;
 using TestCardGame.Scripts.Generally;
 using TestCardGame.Scripts.StaticData.Events;
 using UnityEngine;
@@ -12,25 +9,16 @@ namespace Generally.Services
     public class PlayerClicksHandleService : BaseInitializer
     {
         [SerializeField] private PlayerInputKeysEventData _playerInputKeysEventData;
-        private SceneData _sceneData;
-        
-        public override void Construct(SceneData sceneData)
-        {
-            base.Construct(sceneData);
-            _sceneData = sceneData;
-           
-            
-        }
+        private GameData _gameData;
 
-        private void FlipCard()
+        public override void Construct(GameData gameData)
         {
-          var lelekek=  _sceneData.Cards.First(card => card.CardStaticData.Name == "lelkek");
-        
+            base.Construct(gameData);
+            _gameData = gameData;
         }
 
         public override void Subscribe()
         {
-            
             base.Subscribe();
         }
 

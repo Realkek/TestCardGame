@@ -1,13 +1,11 @@
-using Generally;
-using Interfaces;
-using Scenes.BattleVsZombies.Generally;
+using TestCardGame.Scripts.Interfaces.BaseInitialization;
 using UnityEngine;
 
 namespace TestCardGame.Scripts.Generally
 {
     public abstract class BaseInitializer : ScriptableObject, IBaseInitializer
     {
-        public virtual void Construct(SceneData sceneData) {}
+        public virtual void Construct(GameData gameData) {}
         public virtual void GetComponents() { }
         public virtual void Initialize(){}
         

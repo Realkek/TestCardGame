@@ -1,10 +1,9 @@
-using Generally;
-using Scenes.BattleVsZombies.Generally;
+using TestCardGame.Scripts.Generally;
 
-namespace Scenes.BattleVsZombies.Interfaces
+namespace TestCardGame.Scripts.Interfaces.BaseInitialization
 {
     public interface IConstructable
     {
-        void Construct(SceneData sceneData);
+        void Construct(GameData gameData);
     }
 }

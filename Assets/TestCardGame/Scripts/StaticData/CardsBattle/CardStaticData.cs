@@ -1,8 +1,5 @@
 using TestCardGame.Scripts.Generally;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace Scenes.BattleVsZombies.Generally.StaticData
 {
@@ -12,10 +9,9 @@ namespace Scenes.BattleVsZombies.Generally.StaticData
     {
         [SerializeField] private int _health;
         [SerializeField] private string _description;
-        [SerializeField] private Image _backgroundIcon;
-        [SerializeField] private Image _hpIcon;
-        [SerializeField] private Image _manaPointsIcon;
-        [SerializeField] private Image _attackPointsIcon;
-        
+        [SerializeField] private Sprite _backgroundIcon;
+        [SerializeField] private Sprite _hpIcon;
+        [SerializeField] private Sprite _manaPointsIcon;
+        [SerializeField] private Sprite _attackPointsIcon;
     }
 }

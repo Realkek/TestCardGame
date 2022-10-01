@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Core.PathCore;
@@ -30,8 +27,7 @@ namespace TestCardGame.Scripts
                 var y = -0.05f * (xValues[i] * xValues[i]);
                 _pathValues[i] = new Vector3(xValues[i], y, player.transform.position.z);
             }
-
-           
+            
             _tweenerCore = player.transform.DOPath(_pathValues, 5, pathSys);
             _tweenerCore.SetLookAt(_pathValues[6], Vector3.right);
             _tweenerCore.onComplete += OnTweenComplete;

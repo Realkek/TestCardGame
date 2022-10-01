@@ -1,9 +1,8 @@
 using UnityEngine;
 
-namespace Scenes.BattleVsZombies.Generally
+namespace TestCardGame.Scripts.Generally
 {
     public class MonoBehaviourProvider : MonoBehaviour
     {
-      
     }
 }

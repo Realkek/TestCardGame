@@ -1,4 +1,4 @@
-namespace Scenes.BattleVsZombies.Interfaces
+namespace TestCardGame.Scripts.Interfaces.BaseInitialization
 {
     public interface IEnabler
     {

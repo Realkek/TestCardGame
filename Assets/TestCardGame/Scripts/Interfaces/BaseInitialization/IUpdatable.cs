@@ -1,4 +1,4 @@
-﻿namespace Interfaces
+﻿namespace TestCardGame.Scripts.Interfaces.BaseInitialization
 {
     public interface IUpdatable
     {

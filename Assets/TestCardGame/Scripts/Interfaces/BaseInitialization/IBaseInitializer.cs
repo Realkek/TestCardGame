@@ -1,7 +1,6 @@
 using System;
-using Scenes.BattleVsZombies.Interfaces;
 
-namespace Interfaces
+namespace TestCardGame.Scripts.Interfaces.BaseInitialization
 {
     public interface IBaseInitializer : IComponentsReceiver,  IConstructable,  IInitializer, 
         IEnabler, IStartable, IDisposable, IUpdatable, IUpdatableFixed, ISubscriber { }

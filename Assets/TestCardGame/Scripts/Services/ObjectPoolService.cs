@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Scenes.BattleVsZombies.Generally;
 using TestCardGame.Scripts.Generally;
 using UnityEngine;
 
@@ -12,12 +11,12 @@ namespace Generally.Services
         private readonly Queue<GameObject> _inactiveObjects = new Queue<GameObject>();
         private readonly List<GameObject> _activeObjects = new List<GameObject>();
         private const int MaxCurrentZombiesCount = 8;
-        private SceneData _sceneData;
+        private GameData _gameData;
 
-        public override void Construct(SceneData sceneData)
+        public override void Construct(GameData gameData)
         {
-            base.Construct(sceneData);
-            _sceneData = sceneData;
+            base.Construct(gameData);
+            _gameData = gameData;
         }
 
         protected GameObject Get()

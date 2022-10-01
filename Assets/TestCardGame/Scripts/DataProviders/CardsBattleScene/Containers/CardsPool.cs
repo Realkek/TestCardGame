@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using TestCardGame.Scripts.DataProviders;
 
-public class CardsPool : MonoBehaviour
+public class CardsPool : ObjectsPoolData
 {
-   
+    
 }

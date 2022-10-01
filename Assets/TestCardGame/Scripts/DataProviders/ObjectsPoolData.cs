@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using Generally;
+using TestCardGame.Scripts.Generally;
 using UnityEngine;
 
-namespace Generally.DataProviders
+namespace TestCardGame.Scripts.DataProviders
 {
     public class ObjectsPoolData : GameObjectDataProvider
     {
