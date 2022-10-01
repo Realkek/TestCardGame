@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using Scenes.BattleVsZombies.Generally.StaticData;
+using TestCardGame.Scripts.Generally;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Card : MonoBehaviour
+namespace TestCardGame.Scripts.DataProviders.CardsBattleScene.Entities
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Card : MonoBehaviour
     {
+        [SerializeField] private CardStaticData _cardStaticData;
         
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        public CardStaticData CardStaticData => _cardStaticData;
         
     }
 }

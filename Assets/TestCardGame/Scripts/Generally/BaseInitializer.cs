@@ -5,13 +5,11 @@ using UnityEngine;
 
 namespace TestCardGame.Scripts.Generally
 {
-    public class BaseInitializer : ScriptableObject, IBaseInitializer
+    public abstract class BaseInitializer : ScriptableObject, IBaseInitializer
     {
-        protected MonoBehaviourProvider MonoBehaviourProvider;
-
         public virtual void Construct(SceneData sceneData) {}
         public virtual void GetComponents() { }
-        public virtual void Initialize() => MonoBehaviourProvider = FindObjectOfType<MonoBehaviourProvider>();
+        public virtual void Initialize(){}
         
 
         public virtual void Enable() => Subscribe();

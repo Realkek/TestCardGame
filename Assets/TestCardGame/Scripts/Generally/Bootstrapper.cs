@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Interfaces;
@@ -21,6 +22,14 @@ namespace Generally
                 baseInitializer.GetComponents();
                 baseInitializer.Construct(_sceneData);
                 baseInitializer.Initialize();
+                baseInitializer.Enable();
+            }
+        }
+
+        private void OnEnable()
+        {
+            foreach (IBaseInitializer baseInitializer in _baseInitializers)
+            {
                 baseInitializer.Enable();
             }
         }

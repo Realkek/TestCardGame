@@ -20,24 +20,26 @@ namespace TestCardGame.Scripts
         private Vector3 playerNextPosition;
         private TweenerCore<Vector3, Path, PathOptions> _tweenerCore;
 
+        private int indexPoint = 0;
+
         void Start()
         {
             player.transform.position = new Vector3(-4f, -0.8f, player.transform.position.z);
             for (int i = 0; i < _pathValues.Length; i++)
             {
                 var y = -0.05f * (xValues[i] * xValues[i]);
-                Debug.Log(y);
                 _pathValues[i] = new Vector3(xValues[i], y, player.transform.position.z);
             }
 
-            _tweenerCore = player.transform.DOPath(_pathValues, 5, pathSys).SetLookAt(_pathValues.Last(), Vector3.left);
+           
+            _tweenerCore = player.transform.DOPath(_pathValues, 5, pathSys);
+            _tweenerCore.SetLookAt(_pathValues[6], Vector3.right);
             _tweenerCore.onComplete += OnTweenComplete;
             _tweenerCore.onWaypointChange += OnWaypointChange;
         }
 
         private void OnTweenComplete()
         {
-            player.transform.LookAt(_pathValues.Last(), Vector3.left);
         }
 
         private void OnWaypointChange(int value)

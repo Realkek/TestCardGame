@@ -7,11 +7,12 @@ namespace TestCardGame.Scripts.StaticData.Events
         fileName = "CardSelectedEventData")]
     public class PlayerInputKeysEventData : ScriptableObject
     {
-        public event Action CardSelected;
-
-        protected virtual void OnCardSelected()
+        public event Action<GameObject> CardSelected;
+        
+        
+        public void OnCardSelected(GameObject gameObject)
         {
-            CardSelected?.Invoke();
+            CardSelected?.Invoke(gameObject);
         }
     }
 }
