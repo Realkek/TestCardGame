@@ -1,4 +1,6 @@
+using DG.Tweening;
 using Scenes.BattleVsZombies.Generally;
+using TestCardGame.Scripts.Generally;
 using UnityEngine;
 
 namespace Generally.Services

@@ -1,8 +1,9 @@
+using Generally;
 using Interfaces;
 using Scenes.BattleVsZombies.Generally;
 using UnityEngine;
 
-namespace Generally
+namespace TestCardGame.Scripts.Generally
 {
     public class BaseInitializer : ScriptableObject, IBaseInitializer
     {

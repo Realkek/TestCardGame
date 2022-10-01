@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Scenes.BattleVsZombies.Generally;
+using TestCardGame.Scripts.Generally;
 using UnityEngine;
 
 namespace Generally.Services
