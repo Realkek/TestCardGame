@@ -1,5 +1,5 @@
 using TestCardGame.Scripts.Generally;
-using TestCardGame.Scripts.StaticData.Events;
+using TestCardGame.Scripts.StaticData.CardsBattleScene.Events;
 using UnityEngine;
 
 namespace Generally.Services
@@ -13,7 +13,6 @@ namespace Generally.Services
 
         public override void Construct(GameData gameData)
         {
-            base.Construct(gameData);
             _gameData = gameData;
         }
 

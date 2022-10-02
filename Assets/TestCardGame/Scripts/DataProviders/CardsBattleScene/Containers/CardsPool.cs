@@ -1,6 +1,11 @@
-using TestCardGame.Scripts.DataProviders;
+using TestCardGame.Scripts.StaticData.CardsBattleScene.Events;
+using TestCardGame.Scripts.StaticData.Events;
+using UnityEngine;
 
-public class CardsPool : ObjectsPoolData
+namespace TestCardGame.Scripts.DataProviders.CardsBattleScene.Containers
 {
-    
+    public class CardsPool : ObjectsPoolData
+    { 
+        
+    }
 }

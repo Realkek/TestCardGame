@@ -29,7 +29,7 @@ namespace TestCardGame.Scripts
             }
             
             _tweenerCore = player.transform.DOPath(_pathValues, 5, pathSys);
-            _tweenerCore.SetLookAt(_pathValues[6], Vector3.right);
+            _tweenerCore.SetLookAt(_pathValues[6], Vector3.left);
             _tweenerCore.onComplete += OnTweenComplete;
             _tweenerCore.onWaypointChange += OnWaypointChange;
         }

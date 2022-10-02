@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scenes.BattleVsZombies.Generally.StaticData
 {
-    [CreateAssetMenu(menuName = "StaticData/Game/CardStaticData",
+    [CreateAssetMenu(menuName = "StaticData/Game/CardsBattle/CardStaticData",
         fileName = "CardStaticData")]
     public class CardStaticData : BaseObjectStaticData
     {

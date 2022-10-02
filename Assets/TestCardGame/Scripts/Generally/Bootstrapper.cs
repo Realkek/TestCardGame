@@ -1,9 +1,9 @@
+using System;
 using System.Collections.Generic;
-using TestCardGame.Scripts.Generally;
 using TestCardGame.Scripts.Interfaces.BaseInitialization;
 using UnityEngine;
 
-namespace Generally
+namespace TestCardGame.Scripts.Generally
 {
     public class Bootstrapper : MonoBehaviour
     {
@@ -23,25 +23,31 @@ namespace Generally
             }
         }
 
+        private void Start()
+        {
+            foreach (IStartable baseInitializer in _baseInitializers)
+                baseInitializer.OnStart();
+        }
+
         private void OnEnable()
         {
-            foreach (IBaseInitializer baseInitializer in _baseInitializers)
+            foreach (IEnabler baseInitializer in _baseInitializers)
                 baseInitializer.Enable();
         }
 
         private void Update()
         {
-            foreach (IBaseInitializer baseInitializer in _baseInitializers) baseInitializer.Operate();
+            foreach (IUpdatable baseInitializer in _baseInitializers) baseInitializer.Operate();
         }
 
         private void FixedUpdate()
         {
-            foreach (IBaseInitializer baseInitializer in _baseInitializers) baseInitializer.FixedOperate();
+            foreach (IUpdatableFixed baseInitializer in _baseInitializers) baseInitializer.FixedOperate();
         }
 
         private void OnDestroy()
         {
-            foreach (IBaseInitializer baseInitializer in _baseInitializers) baseInitializer.Dispose();
+            foreach (IDisposable baseInitializer in _baseInitializers) baseInitializer.Dispose();
         }
     }
 }
