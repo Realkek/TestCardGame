@@ -10,33 +10,7 @@ namespace TestCardGame.Scripts.Services.CardsBattleScene.Pools
     {
         private CardsPool _cardsPool;
         private const int FirstPositionNumber = 0;
-
-        public override void Initialize()
-        {
-            base.Initialize();
-            _cardsPool = GameData.CardsBattleData.CardsPool;
-        }
-
-        public override void Enable()
-        {
-            base.Enable();
-        }
-
-        public override void Disable()
-        {
-            base.Disable();
-        }
-
-        public override void Subscribe()
-        {
-            base.Subscribe();
-        }
-
-        public override void Unsubscribe()
-        {
-            base.Unsubscribe();
-        }
-
+        
         protected override int ChooseNewObjectInstancePositionNumber()
         {
             base.ChooseNewObjectInstancePositionNumber();

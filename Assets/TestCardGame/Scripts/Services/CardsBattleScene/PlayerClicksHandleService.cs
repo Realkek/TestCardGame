@@ -2,7 +2,7 @@ using TestCardGame.Scripts.Generally;
 using TestCardGame.Scripts.StaticData.CardsBattleScene.Events;
 using UnityEngine;
 
-namespace Generally.Services
+namespace TestCardGame.Scripts.Services.CardsBattleScene
 {
     [CreateAssetMenu(menuName = "Game/Services/PlayerClicksHandleService",
         fileName = "PlayerClicksHandleService")]
@@ -14,16 +14,6 @@ namespace Generally.Services
         public override void Construct(GameData gameData)
         {
             _gameData = gameData;
-        }
-
-        public override void Subscribe()
-        {
-            base.Subscribe();
-        }
-
-        public override void Operate()
-        {
-            base.Operate();
         }
     }
 }

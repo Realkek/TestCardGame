@@ -14,40 +14,64 @@ namespace TestCardGame.Scripts.Generally
         {
             _gameData = GetComponent<GameData>();
             _gameData.GetComponents();
+            InitializeBase();
+        }
 
-            foreach (IBaseInitializer baseInitializer in _baseInitializers)
+        private void InitializeBase()
+        {
+            foreach (var baseInitializer in _baseInitializers)
             {
-                baseInitializer.GetComponents();
+                GetComponents(baseInitializer);
                 baseInitializer.Construct(_gameData);
-                baseInitializer.Initialize();
+                Initialize(baseInitializer);
             }
+        }
+
+        private void GetComponents(BaseInitializer baseInitializer)
+        {
+            if (baseInitializer is IComponentsReceiver componentsReceiver)
+                componentsReceiver.GetComponents();
+        }
+
+        private void Initialize(BaseInitializer baseInitializer)
+        {
+            if (baseInitializer is IInitializer initializer)
+                initializer.Initialize();
         }
 
         private void Start()
         {
-            foreach (IStartable baseInitializer in _baseInitializers)
-                baseInitializer.OnStart();
+            foreach (var baseInitializer in _baseInitializers)
+                if (baseInitializer is IInitializer initializer)
+                    initializer.Initialize();
         }
 
         private void OnEnable()
         {
-            foreach (IEnabler baseInitializer in _baseInitializers)
-                baseInitializer.Enable();
+            foreach (var baseInitializer in _baseInitializers)
+                if (baseInitializer is IEnabler enabler)
+                    enabler.Enable();
         }
 
         private void Update()
         {
-            foreach (IUpdatable baseInitializer in _baseInitializers) baseInitializer.Operate();
+            foreach (var baseInitializer in _baseInitializers)
+                if (baseInitializer is IUpdatable updater)
+                    updater.Operate();
         }
 
         private void FixedUpdate()
         {
-            foreach (IUpdatableFixed baseInitializer in _baseInitializers) baseInitializer.FixedOperate();
+            foreach (var baseInitializer in _baseInitializers)
+                if (baseInitializer is IUpdatableFixed updaterFixed)
+                    updaterFixed.FixedOperate();
         }
 
         private void OnDestroy()
         {
-            foreach (IDisposable baseInitializer in _baseInitializers) baseInitializer.Dispose();
+            foreach (var baseInitializer in _baseInitializers)
+                if (baseInitializer is IDisposable disposer)
+                    disposer.Dispose();
         }
     }
 }

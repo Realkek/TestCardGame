@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Generally;
 using TestCardGame.Scripts.Generally;
 using UnityEngine;
 
