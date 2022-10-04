@@ -1,5 +1,6 @@
 using TestCardGame.Scripts.Generally;
 using TestCardGame.Scripts.StaticData.CardsBattleScene.Events;
+using TestCardGame.Scripts.StaticData.Events;
 using UnityEngine;
 
 namespace TestCardGame.Scripts.Services.CardsBattleScene

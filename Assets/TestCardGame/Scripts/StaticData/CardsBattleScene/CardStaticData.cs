@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Scenes.BattleVsZombies.Generally.StaticData
 {
-    [CreateAssetMenu(menuName = "StaticData/Game/CardsBattle/CardStaticData",
-        fileName = "CardStaticData")]
+    [CreateAssetMenu(menuName = "StaticData/Game/CardsBattle/CardsEventData",
+        fileName = "CardsEventData")]
     public class CardStaticData : BaseObjectStaticData
     {
         [SerializeField] private int _health;

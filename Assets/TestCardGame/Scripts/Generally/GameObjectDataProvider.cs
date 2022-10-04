@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace TestCardGame.Scripts.Generally
@@ -6,5 +7,6 @@ namespace TestCardGame.Scripts.Generally
     {
         [SerializeField] private string _name;
         public string Name => _name;
+        
     }
 }

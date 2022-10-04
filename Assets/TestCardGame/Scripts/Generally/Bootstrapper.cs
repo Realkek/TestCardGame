@@ -42,15 +42,24 @@ namespace TestCardGame.Scripts.Generally
         private void Start()
         {
             foreach (var baseInitializer in _baseInitializers)
-                if (baseInitializer is IInitializer initializer)
-                    initializer.Initialize();
+                if (baseInitializer is IStartable initializer)
+                    initializer.OnStart();
         }
 
         private void OnEnable()
         {
             foreach (var baseInitializer in _baseInitializers)
-                if (baseInitializer is IEnabler enabler)
-                    enabler.Enable();
+            {
+                switch (baseInitializer)
+                {
+                    case IEnabler enabler:
+                        enabler.Enable();
+                        break;
+                    case ISubscriber subscriber:
+                        subscriber.Subscribe();
+                        break;
+                }
+            }
         }
 
         private void Update()
@@ -65,6 +74,22 @@ namespace TestCardGame.Scripts.Generally
             foreach (var baseInitializer in _baseInitializers)
                 if (baseInitializer is IUpdatableFixed updaterFixed)
                     updaterFixed.FixedOperate();
+        }
+
+        private void OnDisable()
+        {
+            foreach (var baseInitializer in _baseInitializers)
+            {
+                switch (baseInitializer)
+                {
+                    case IEnabler disabler:
+                        disabler.Disable();
+                        break;
+                    case ISubscriber subscriber:
+                        subscriber.Unsubscribe();
+                        break;
+                }
+            }
         }
 
         private void OnDestroy()

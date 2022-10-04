@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace TestCardGame.Scripts.StaticData.CardsBattleScene.Events
+namespace TestCardGame.Scripts.StaticData.Events
 {
     [CreateAssetMenu(menuName = "StaticData/Game/EventsData/PlayerInputKeysEventData",
         fileName = "PlayerInputKeysEventData")]

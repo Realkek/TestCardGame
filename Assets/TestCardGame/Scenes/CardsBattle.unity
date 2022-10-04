@@ -705,6 +705,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 682236370}
     m_Modifications:
+    - target: {fileID: 6228700342561421549, guid: 6eb71313748059741b8272395316e3c7, type: 3}
+      propertyPath: _cardStaticData
+      value: 
+      objectReference: {fileID: 11400000, guid: 925680b8f832b8d4f8da5046a3e2e5da, type: 2}
+    - target: {fileID: 6228700342561421549, guid: 6eb71313748059741b8272395316e3c7, type: 3}
+      propertyPath: _cardsEventData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0886af688912e904fbe1b085e73b9d04, type: 2}
     - target: {fileID: 6638114882960130608, guid: 6eb71313748059741b8272395316e3c7, type: 3}
       propertyPath: m_Name
       value: Card

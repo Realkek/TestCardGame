@@ -9,7 +9,7 @@ namespace TestCardGame.Scripts.Generally
 
         public void GetComponents()
         {
-            _cardsBattleData = new CardsBattleData(this);
+            _cardsBattleData = new CardsBattleData();
         }
 
         public CardsBattleData CardsBattleData => _cardsBattleData;

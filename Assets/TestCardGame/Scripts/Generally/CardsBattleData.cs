@@ -6,15 +6,15 @@ using UnityEngine;
 
 namespace TestCardGame.Scripts.Generally
 {
-    public class CardsBattleData
+    public class CardsBattleData : Object
     {
         private CardsPool _cardsPool;
         private List<Card> _cards;
 
-        public CardsBattleData(Component monoBehaviour)
+        public CardsBattleData()
         {
-            _cardsPool = monoBehaviour.GetComponentInChildren<CardsPool>();
-            _cards = monoBehaviour.GetComponentsInChildren<Card>().ToList();
+            _cardsPool = FindObjectOfType<CardsPool>();
+            _cards = _cardsPool.GetComponentsInChildren<Card>().ToList();
         }
 
         public CardsPool CardsPool => _cardsPool;

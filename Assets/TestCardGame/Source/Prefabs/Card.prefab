@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080143f105942b6498523e5c99c585fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardStaticData: {fileID: 0}
+  _cardsEventData: {fileID: 11400000, guid: 0886af688912e904fbe1b085e73b9d04, type: 2}
 --- !u!114 &4540854145384539097
 MonoBehaviour:
   m_ObjectHideFlags: 0

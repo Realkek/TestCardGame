@@ -1,16 +1,18 @@
 using System.Collections.Generic;
-using TestCardGame.Scripts.DataProviders.CardsBattleScene.Containers;
 using TestCardGame.Scripts.Generally;
+using TestCardGame.Scripts.Interfaces.BaseInitialization;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TestCardGame.Scripts.Services
 {
-    public class ObjectPoolService : BaseInitializer
+    public class ObjectPoolService : BaseInitializer, IInitializer
     {
         protected List<Transform> EntityPlacePositions;
         protected GameData GameData;
+        protected int MaxCurrentObjectsCount;
         [SerializeField] private GameObject _prefab;
-        [SerializeField] private int maxCurrentObjectsCount;
+
         private readonly Queue<GameObject> _inactiveObjects = new Queue<GameObject>();
         private readonly List<GameObject> _activeObjects = new List<GameObject>();
 
@@ -19,14 +21,24 @@ namespace TestCardGame.Scripts.Services
             GameData = gameData;
         }
 
+        public virtual void Initialize()
+        {
+            EntityPlacePositions = GameData.CardsBattleData.CardsPool.EntityPlacePositions;
+        }
+
         protected GameObject GetObject()
         {
-            if ((_inactiveObjects.Count + _activeObjects.Count) < maxCurrentObjectsCount)
+            if ((_inactiveObjects.Count + _activeObjects.Count) < MaxCurrentObjectsCount)
                 AddObjects();
-            GameObject activeObject = _inactiveObjects.Dequeue();
-            _activeObjects.Add(activeObject);
-            ActivateGameObject(activeObject);
-            return activeObject;
+            if (_inactiveObjects.Count > 0)
+            {
+                GameObject activeObject = _inactiveObjects?.Dequeue();
+                _activeObjects.Add(activeObject);
+                ActivateGameObject(activeObject);
+                return activeObject;
+            }
+
+            return null;
         }
 
         private void AddObjects()
