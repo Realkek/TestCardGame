@@ -7,7 +7,7 @@ namespace TestCardGame.Scripts.Services.CardsBattleScene.Pools
 {
     [CreateAssetMenu(menuName = "Game/Services/CardsBattle/CardsPoolService",
         fileName = "CardsPoolService")]
-    public class CardsPoolService : ObjectPoolService, ISubscriber
+    public class CardsPoolService : ObjectPoolService, ISubscriber, IStartable
     {
         private CardsPool _cardsPool;
         private const int FirstPositionNumber = 0;
@@ -29,8 +29,11 @@ namespace TestCardGame.Scripts.Services.CardsBattleScene.Pools
         {
             while (true)
             {
-                GetObject();
+                GameObject newObject = GetObject();
                 yield return new WaitForSeconds(CardsSpawnInterval);
+                if (newObject != null)
+                {
+                }
             }
         }
 
@@ -38,21 +41,36 @@ namespace TestCardGame.Scripts.Services.CardsBattleScene.Pools
         {
             foreach (var card in GameData.CardsBattleData.Cards)
             {
-                card.CardsEventData.CardSpawnInitiated += CardsEventDataOnCardSpawnInitiated;
+                card.CardsEventData.CardSpawned += CardsEventDataOnCardSpawned;
             }
+
+            GameData.CardsBattleData.CardsPool.CardsPoolEventData.CardsSpawnInitiated +=
+                CardsPoolEventDataOnCardsSpawnInitiated;
         }
 
         public void Unsubscribe()
         {
             foreach (var card in GameData.CardsBattleData.Cards)
             {
-                card.CardsEventData.CardSpawnInitiated -= CardsEventDataOnCardSpawnInitiated;
+                card.CardsEventData.CardSpawned -= CardsEventDataOnCardSpawned;
             }
+
+            GameData.CardsBattleData.CardsPool.CardsPoolEventData.CardsSpawnInitiated -=
+                CardsPoolEventDataOnCardsSpawnInitiated;
         }
 
-        private void CardsEventDataOnCardSpawnInitiated()
+        private void CardsPoolEventDataOnCardsSpawnInitiated()
         {
             GameData.StartCoroutine(SpawnCards());
+        }
+
+        private void CardsEventDataOnCardSpawned(GameObject obj)
+        {
+        }
+
+        public void OnStart()
+        {
+            GameData.CardsBattleData.CardsPool.CardsPoolEventData.TriggerCardSpawnInitiated();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace TestCardGame.Scripts
 {
     public class TweenPath : MonoBehaviour
     {
-        public Transform player;
+        public Transform cardTransform;
         public PathType pathSys = PathType.Linear;
         private readonly Vector3[] _pathValues = new Vector3[7];
         public int[] xValues;
@@ -16,19 +16,17 @@ namespace TestCardGame.Scripts
         public Vector3 playerStartPosition;
         private Vector3 playerNextPosition;
         private TweenerCore<Vector3, Path, PathOptions> _tweenerCore;
-
-        private int _indexPoint = 0;
-
+        
         void Start()
         {
-            player.transform.position = new Vector3(-4f, -0.8f, player.transform.position.z);
+            cardTransform.transform.position = new Vector3(-4f, -0.8f, cardTransform.transform.position.z);
             for (int i = 0; i < _pathValues.Length; i++)
             {
                 var y = -0.05f * (xValues[i] * xValues[i]);
-                _pathValues[i] = new Vector3(xValues[i], y, player.transform.position.z);
+                _pathValues[i] = new Vector3(xValues[i], y, cardTransform.transform.position.z);
             }
 
-            _tweenerCore = player.transform.DOPath(_pathValues, 5, pathSys);
+            _tweenerCore = cardTransform.transform.DOPath(_pathValues, 5, pathSys);
             _tweenerCore.SetLookAt(_pathValues[6], Vector3.left);
             _tweenerCore.onComplete += OnTweenComplete;
             _tweenerCore.onWaypointChange += OnWaypointChange;

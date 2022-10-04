@@ -50,15 +50,8 @@ namespace TestCardGame.Scripts.Generally
         {
             foreach (var baseInitializer in _baseInitializers)
             {
-                switch (baseInitializer)
-                {
-                    case IEnabler enabler:
-                        enabler.Enable();
-                        break;
-                    case ISubscriber subscriber:
-                        subscriber.Subscribe();
-                        break;
-                }
+                if (baseInitializer is IEnabler enabler) enabler.Enable();
+                if (baseInitializer is ISubscriber subscriber) subscriber.Subscribe();
             }
         }
 
@@ -80,15 +73,8 @@ namespace TestCardGame.Scripts.Generally
         {
             foreach (var baseInitializer in _baseInitializers)
             {
-                switch (baseInitializer)
-                {
-                    case IEnabler disabler:
-                        disabler.Disable();
-                        break;
-                    case ISubscriber subscriber:
-                        subscriber.Unsubscribe();
-                        break;
-                }
+                if (baseInitializer is IEnabler disabler) disabler.Disable();
+                if (baseInitializer is ISubscriber subscriber) subscriber.Unsubscribe();
             }
         }
 

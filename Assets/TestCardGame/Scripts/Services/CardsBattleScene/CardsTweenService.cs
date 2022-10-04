@@ -1,9 +1,12 @@
 using TestCardGame.Scripts.Generally;
 using TestCardGame.Scripts.Interfaces.BaseInitialization;
 using TestCardGame.Scripts.StaticData.CardsBattleScene.Events;
+using UnityEngine;
 
 namespace TestCardGame.Scripts.Services.CardsBattleScene
-{
+{ 
+    [CreateAssetMenu(menuName = "Game/Services/CardsBattle/CardsTweenService",
+        fileName = "CardsTweenService")]
     public class CardsTweenService : BaseInitializer, IInitializer, ISubscriber
     {
         private GameData _gameData;
@@ -29,8 +32,9 @@ namespace TestCardGame.Scripts.Services.CardsBattleScene
             _cardsEventData.CardSpawned -= CardsEventDataOnCardSpawned;
         }
 
-        private void CardsEventDataOnCardSpawned()
+        private void CardsEventDataOnCardSpawned(GameObject gameObject)
         {
+            Debug.Log("kek");
         }
     }
 }

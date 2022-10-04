@@ -1,10 +1,10 @@
 using TestCardGame.Scripts.Generally;
 using UnityEngine;
 
-namespace Scenes.BattleVsZombies.Generally.StaticData
+namespace TestCardGame.Scripts.StaticData.CardsBattleScene
 {
-    [CreateAssetMenu(menuName = "StaticData/Game/CardsBattle/CardsEventData",
-        fileName = "CardsEventData")]
+    [CreateAssetMenu(menuName = "Game/StaticData/CardsBattle/CardStaticData",
+        fileName = "CardStaticData")]
     public class CardStaticData : BaseObjectStaticData
     {
         [SerializeField] private int _health;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TestCardGame.Scripts.StaticData.Events
 {
-    [CreateAssetMenu(menuName = "StaticData/Game/EventsData/SelectObjectEventData",
+    [CreateAssetMenu(menuName = "Game/StaticData/EventsData/SelectObjectEventData",
         fileName = "SelectObjectEventData")]
     public class SelectObjectEventData : ScriptableObject
     {

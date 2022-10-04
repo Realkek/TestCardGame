@@ -169,6 +169,7 @@ MonoBehaviour:
   _baseInitializers:
   - {fileID: 11400000, guid: b9e38b1a22e45b8478926db143daa63a, type: 2}
   - {fileID: 11400000, guid: 0d7b14fa0c970364b8c614c25bf40a0a, type: 2}
+  - {fileID: 11400000, guid: f70c02d1fb906a144b1ecbc03caefdfc, type: 2}
 --- !u!4 &215703056
 Transform:
   m_ObjectHideFlags: 0
@@ -357,6 +358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 682236370}
+  - component: {fileID: 682236372}
   - component: {fileID: 682236371}
   m_Layer: 5
   m_Name: Cards
@@ -398,9 +400,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6466742ea53ff2e4fb573831a87a4375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: CardsContainer
+  _name: CardsPool
   _entityPlacePositions:
   - {fileID: 1441395108}
+  _cardsPoolEventData: {fileID: 11400000, guid: 4ea38d0f75567ac4cbaad7f076aee766, type: 2}
+--- !u!114 &682236372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682236369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e0312d175541ae4989215d369960071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1441395107
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfcb7ca7bddd424bb52db2675a51400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2075049612}
+  cardTransform: {fileID: 0}
   pathSys: 0
   xValues: fcfffffffeffffffffffffff00000000010000000200000004000000
   playerStartPosition: {x: 0, y: 0, z: 0}
