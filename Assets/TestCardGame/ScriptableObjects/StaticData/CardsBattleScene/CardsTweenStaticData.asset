@@ -9,8 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c330d613cb82aee4ea416848b1dbf984, type: 3}
-  m_Name: CardsPoolService
+  m_Script: {fileID: 11500000, guid: 664d333911ada50458442bda3efa8457, type: 3}
+  m_Name: CardsTweenStaticData
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 6638114882960130608, guid: 6eb71313748059741b8272395316e3c7, type: 3}
-  _cardsEventData: {fileID: 11400000, guid: 0886af688912e904fbe1b085e73b9d04, type: 2}
+  _name: 
+  _xTweenInputsValues:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  _pathNumbersCount: 7

@@ -31,13 +31,12 @@ namespace TestCardGame.Scripts.Services.CardsBattleScene
             foreach (var card in _gameData.CardsBattleData.Cards) _cardsEventData = card.CardsEventData;
             _xValues = _gameData.CardsBattleData.CardsTween.XTweenInputValues;
             _pathType = _gameData.CardsBattleData.CardsTween.PathType;
+            _pathValues = _gameData.CardsBattleData.CardsTween.PathValues;
         }
 
         public void Subscribe()
         {
             _cardsEventData.CardSpawned += CardsEventDataOnCardSpawned;
-            _tweenerCore.onComplete += OnComplete;
-            _tweenerCore.onWaypointChange += OnWaypointChange;
         }
 
         public void Unsubscribe()
@@ -58,17 +57,18 @@ namespace TestCardGame.Scripts.Services.CardsBattleScene
             }
 
             _tweenerCore = _cardTransform.transform.DOPath(_pathValues, 5, _pathType);
+            _tweenerCore.onComplete += OnComplete;
+            _tweenerCore.onWaypointChange += OnWaypointChange;
             _tweenerCore.SetLookAt(_pathValues[6], Vector3.left);
         }
 
         private void OnWaypointChange(int value)
         {
-            throw new System.NotImplementedException();
         }
 
         private void OnComplete()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

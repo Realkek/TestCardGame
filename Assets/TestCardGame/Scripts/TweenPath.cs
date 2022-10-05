@@ -10,6 +10,7 @@ namespace TestCardGame.Scripts
     {
         public Transform cardTransform;
         public PathType pathSys = PathType.Linear;
+        
         private readonly Vector3[] _pathValues = new Vector3[7];
         public int[] xValues;
 

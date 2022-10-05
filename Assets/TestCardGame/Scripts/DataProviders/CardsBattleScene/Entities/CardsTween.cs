@@ -12,7 +12,8 @@ namespace TestCardGame.Scripts.DataProviders.CardsBattleScene.Entities
     {
         [SerializeField] private CardStaticData _cardStaticData;
         [SerializeField] private CardsTweenStaticData _cardsTweenStaticData;
-        private PathType _pathType = PathType.Linear;
+        
+        private readonly PathType _pathType = PathType.Linear;
         private Vector3[] _pathValues;
         private TweenerCore<Vector3, Path, PathOptions> _tweenerCore;
         private float[] _xTweenInputValues;

@@ -11,31 +11,8 @@ namespace TestCardGame.Scripts.DataProviders.CardsBattleScene.Containers
         private List<Card> _cards;
         private CardsTween _cardsTween;
 
-        public CardsPool CardsPool
-        {
-            get
-            {
-                _cardsPool = GetComponent<CardsPool>();
-                return _cardsPool;
-            }
-        }
-
-        public List<Card> Cards
-        {
-            get
-            {
-                _cards = GetComponentsInChildren<Card>().ToList();
-                return _cards;
-            }
-        }
-
-        public CardsTween CardsTween
-        {
-            get
-            {
-                _cardsTween = GetComponent<CardsTween>();
-                return _cardsTween;
-            }
-        }
+        public CardsPool CardsPool => _cardsPool ??= GetComponent<CardsPool>();
+        public List<Card> Cards => _cards ??= GetComponentsInChildren<Card>().ToList();
+        public CardsTween CardsTween => _cardsTween ??= _cardsTween = GetComponent<CardsTween>();
     }
 }

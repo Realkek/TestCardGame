@@ -7,9 +7,12 @@ namespace TestCardGame.Scripts.Generally
 {
     public class Bootstrapper : MonoBehaviour
     {
-        private GameData _gameData;
         [SerializeField] private List<BaseInitializer> _baseInitializers;
-
+        
+        private GameData _gameData;
+        private readonly List<IUpdatable> _updatableServices = new();
+        private readonly List<IUpdatableFixed> _updatableFixedServices = new();
+        
         private void Awake()
         {
             _gameData = GetComponent<GameData>();
@@ -36,6 +39,15 @@ namespace TestCardGame.Scripts.Generally
         {
             if (baseInitializer is IInitializer initializer)
                 initializer.Initialize();
+            CheckUpdatableServiceState(baseInitializer);
+        }
+
+        private void CheckUpdatableServiceState(BaseInitializer baseInitializer)
+        {
+            if (baseInitializer is IUpdatable updater)
+                _updatableServices.Add(updater);
+            if (baseInitializer is IUpdatableFixed updaterFixed)
+                _updatableFixedServices.Add(updaterFixed);
         }
 
         private void Start()
@@ -56,16 +68,14 @@ namespace TestCardGame.Scripts.Generally
 
         private void Update()
         {
-            foreach (var baseInitializer in _baseInitializers)
-                if (baseInitializer is IUpdatable updater)
-                    updater.Operate();
+            foreach (var updatableService in _updatableServices)
+                updatableService.Operate();
         }
 
         private void FixedUpdate()
         {
-            foreach (var baseInitializer in _baseInitializers)
-                if (baseInitializer is IUpdatableFixed updaterFixed)
-                    updaterFixed.FixedOperate();
+            foreach (var updatableFixed in _updatableFixedServices)
+                updatableFixed.FixedOperate();
         }
 
         private void OnDisable()
