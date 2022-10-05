@@ -3,21 +3,39 @@ using DG.Tweening.Core;
 using DG.Tweening.Plugins.Core.PathCore;
 using DG.Tweening.Plugins.Options;
 using TestCardGame.Scripts.Generally;
+using TestCardGame.Scripts.StaticData.CardsBattleScene;
 using UnityEngine;
 
-namespace TestCardGame.Scripts.DataProviders.CardsBattleScene.Containers
+namespace TestCardGame.Scripts.DataProviders.CardsBattleScene.Entities
 {
     public class CardsTween : GameObjectDataProvider
     {
-        private PathType _pathSys = PathType.Linear;
-        [SerializeField] private Transform _cardTransform;
-        [SerializeField] private int[] _xValues;
-        private readonly Vector3[] _pathValues;
+        [SerializeField] private CardStaticData _cardStaticData;
+        [SerializeField] private CardsTweenStaticData _cardsTweenStaticData;
+        private PathType _pathType = PathType.Linear;
+        private Vector3[] _pathValues;
         private TweenerCore<Vector3, Path, PathOptions> _tweenerCore;
+        private float[] _xTweenInputValues;
+        private Transform _cardTransform;
 
-        public PathType PathSys => _pathSys;
-        public Transform CardTransform => _cardTransform;
-        public int[] XValues => _xValues;
-        public Vector3[] PathValues => _pathValues;
+        public PathType PathType => _pathType;
+        
+        public Vector3[] PathValues
+        {
+            get
+            {
+                _pathValues = new Vector3[_cardsTweenStaticData.PathNumbersCount];
+                return _pathValues;
+            }
+        }
+
+        public float[] XTweenInputValues
+        {
+            get
+            {
+                _xTweenInputValues = _cardsTweenStaticData.XTweenInputsValues;
+                return _xTweenInputValues;
+            }
+        }
     }
 }

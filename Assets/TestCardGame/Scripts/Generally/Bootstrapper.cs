@@ -13,7 +13,6 @@ namespace TestCardGame.Scripts.Generally
         private void Awake()
         {
             _gameData = GetComponent<GameData>();
-            _gameData.GetComponents();
             InitializeBase();
         }
 

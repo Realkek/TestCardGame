@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5feed910d5f16649b6b136cbabc224a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cardsBattleData: {fileID: 682236372}
 --- !u!114 &215703055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +361,7 @@ GameObject:
   - component: {fileID: 682236370}
   - component: {fileID: 682236372}
   - component: {fileID: 682236371}
+  - component: {fileID: 682236373}
   m_Layer: 5
   m_Name: Cards
   m_TagString: Untagged
@@ -416,6 +418,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0312d175541ae4989215d369960071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &682236373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682236369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663fb59c87efeb64bbf40d1ad7c35b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: 
+  _cardStaticData: {fileID: 11400000, guid: 925680b8f832b8d4f8da5046a3e2e5da, type: 2}
+  _cardsTweenStaticData: {fileID: 0}
 --- !u!1 &1441395107
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,15 +4,10 @@ using UnityEngine;
 
 namespace TestCardGame.Scripts.Generally
 {
-    public class GameData : MonoBehaviour, IComponentsReceiver
+    public class GameData : MonoBehaviour
     {
-        private CardsBattleData _cardsBattleData;
-
-        public void GetComponents()
-        {
-            _cardsBattleData = new CardsBattleData();
-        }
-
+        [SerializeField] private CardsBattleData _cardsBattleData;
+        
         public CardsBattleData CardsBattleData => _cardsBattleData;
     }
 }
